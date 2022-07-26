@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+#load_body {
+    width: 100vw;
+    background-color: #000;
+    background-image: url(../images/space.svg);
+    background-size: cover;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+
+#load_body article {
+    width: 25rem;
+
+    text-align: left;
+    align-self: center;
+    border: 2px solid #fff;
+
+}
+
+#load_body h2 {
+    font-family: "Roboto";
+    font-weight: 500;
+    color: #fff;
+    font-size: 66px;
+}
+
+#load_body h4 {
+    font-family: "Roboto";
+    font-weight: 400;
+    color: #fff;
+    font-size: 50px;
+}
+
+#load_body p {
+    font-family: "Roboto";
+    font-weight: 500;
+    color: #ffc501;
+    font-size: 20px;
+}
+
+#astro_img {
+    width: auto;
+    max-height: 300px;
+    height: auto;
+
+    align-self: center;
+}
