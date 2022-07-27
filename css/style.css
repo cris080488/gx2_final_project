@@ -1,7 +1,42 @@
+/*----------------------------general-----------------------*/
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+body {
+    background-color: #F4F4F4;
+}
 
-#load_body {
+header {
+    max-width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    min-height: 20px;
+    padding: 10px;
+    font-family: "Roboto";
+}
+
+.header-img {
+   height: 2.3rem;
+   align-self: center;
+}
+
+header div {
+    display: flex;
+    align-self: flex-end;
+}
+
+.page-container {
+    background-color: #fff;
+    display: flex;
+    min-height: 80vh;
+    margin: 20px;
+}
+
+
+/*---------------------------load page---------------------*/
+#load-body {
     width: 100vw;
     background-color: #000;
     background-image: url(../images/space.svg);
@@ -13,30 +48,30 @@
 
 }
 
-#load_body article {
+#load-body article {
     width: 25rem;
-
     text-align: left;
     align-self: center;
-    border: 2px solid #fff;
-
+    justify-content: space-evenly;
+    margin: 0;
 }
 
-#load_body h2 {
+#load-title {
     font-family: "Roboto";
     font-weight: 500;
     color: #fff;
     font-size: 66px;
+    margin-bottom: 0;
 }
 
-#load_body h4 {
+#load-body h4 {
     font-family: "Roboto";
     font-weight: 400;
     color: #fff;
     font-size: 50px;
 }
 
-#load_body p {
+#load-footer {
     font-family: "Roboto";
     font-weight: 500;
     color: #ffc501;
@@ -49,4 +84,98 @@
     height: auto;
 
     align-self: center;
+}
+
+/*------------------login page----------------------*/
+
+#login {
+    align-items: center;
+}
+
+#login-container {
+    background-color: #fff;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px;
+    margin-top: 10vh;
+    border: 1px solid #70707040;
+    border-radius: 4px;
+    text-align: center;
+
+}
+
+#login-container img {
+    width: 6rem;
+}
+
+#login-container form {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+#login-container input {
+    display: block;
+    width: 94%;
+    text-align: left;
+    font-size: 0.8rem;
+    background-color: #F1F3F5;
+    border: 0px;
+    padding: 0 3% 0 3%;
+    margin-bottom: 20px;
+    height: 40px;
+    border-radius: 2px;
+}
+
+#login-pwd-reset {
+    font-family: "Roboto";
+    display: block;
+    text-align: left;
+    text-decoration: underline;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 40px;
+    font-size: 0.8rem;
+}
+
+#login-container input[type=submit] {
+    text-align: center;
+    font-size: 0.85rem;
+    width: 100%;
+    background-color: #ffc501;
+    font-weight: bold;
+    height: 40px;
+    border: none;
+}
+
+/*--------------home------------------------*/
+
+.home-card {
+    background-color: #F4F4F4;
+    width: 14em;
+    height: 12em;
+    text-align: center;
+    margin: 20px;
+    border: 2px solid #F4F4F4;
+    border-radius: 4px;
+    font-family: "Roboto";
+}
+
+.home-card p {
+    background-color: #fff;
+    height: 4em;
+    font-size: 0.85rem;
+    margin-bottom: 2px;
+}
+
+.home-card img {
+    margin:auto;
+    align-self: center;
+}
+
+#home-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; 
 }
