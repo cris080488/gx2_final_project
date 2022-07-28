@@ -1,9 +1,11 @@
-/*----------------------------general-----------------------*/
+/*#region---------------general-------------------*/
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body {
     background-color: #F4F4F4;
+    padding: 0;
+    margin: 0 auto;
 }
 
 header {
@@ -33,9 +35,11 @@ header div {
     min-height: 80vh;
     margin: 20px;
 }
+/*#endregion general*/
 
 
-/*---------------------------load page---------------------*/
+/*#region -----------index_screen----------------*/
+
 #load-body {
     width: 100vw;
     background-color: #000;
@@ -85,11 +89,16 @@ header div {
 
     align-self: center;
 }
+/*#endregion index_screen*/
 
-/*------------------login page----------------------*/
 
+/*#region -----------login_screen----------------*/
 #login {
     align-items: center;
+    background-image: url(../images//libarary_background_gradient.svg), url(../images/library_background.png);
+    background-size: cover, cover;
+    background-position: center top, center 65%;
+    background-repeat: no-repeat;
 }
 
 #login-container {
@@ -98,7 +107,7 @@ header div {
     margin-left: auto;
     margin-right: auto;
     padding: 40px;
-    margin-top: 10vh;
+    margin-top: 15vh;
     border: 1px solid #70707040;
     border-radius: 4px;
     text-align: center;
@@ -127,6 +136,18 @@ header div {
     border-radius: 2px;
 }
 
+#login-email {
+    background-image: url(../images/email_icon.png);
+    background-position: 95%;
+    background-repeat: no-repeat;
+}
+
+#login-pwd {
+    background-image: url(../images/pwd_icon.svg);
+    background-position: 95%;
+    background-repeat: no-repeat;
+}
+
 #login-pwd-reset {
     font-family: "Roboto";
     display: block;
@@ -147,13 +168,18 @@ header div {
     height: 40px;
     border: none;
 }
+/*#endregion login_screen*/
 
-/*--------------home------------------------*/
+
+/*#region-------------home_screen---------------*/
 
 .home-card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
     background-color: #F4F4F4;
-    width: 14em;
-    height: 12em;
+    width: 13em;
+    height: 11em;
     text-align: center;
     margin: 20px;
     border: 2px solid #F4F4F4;
@@ -164,13 +190,12 @@ header div {
 .home-card p {
     background-color: #fff;
     height: 4em;
-    font-size: 0.85rem;
-    margin-bottom: 2px;
+    font-size: 0.85rem;    
 }
 
 .home-card img {
-    margin:auto;
-    align-self: center;
+    margin: auto;
+
 }
 
 #home-container {
@@ -179,3 +204,31 @@ header div {
     justify-content: center;
     align-items: center; 
 }
+
+/*#endregion home_screen*/
+
+
+/*#region-------------register_screen-----------*/
+
+.reg-add-book {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.reg-book-image {
+    display: flex;
+    flex-wrap: nowrap;
+    border: 2px dashed #ffc501 ;
+    font-family: "Roboto";
+    color: #ffc501; 
+    justify-content: center;    
+}
+
+input[type='file'] {
+    display: none;
+}
+
+
+
+/*#endregion*/

@@ -4,9 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>register</title>
+    <title>Register</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">
+
 </head>
-<body>   
+<body id="register">   
+    <header class="header">
+        <img class="header-img" src="images/library_icon.png">
+        <div class="user-block">
+            <img src="images/person_icon.svg">
+            <p class="user-text">Usuário</p>
+            <img src="images/arrow_icon.svg">
+        </div>
+    </header>
+
+    <div class="page-container">
+        <p></p>
+        <form class="reg-add-book">
+            <div class="reg-book-image"><img src="images/add_icon_yellow.svg"><p>Capa</p></div>
+            <input type="file" name="add-image" id="reg-input-image" accept="image/*">
+            <input type="text" name="add-title" id="reg-book-title" placeholder="Título">
+            <input type="text" name="add-synopsis" id="reg-book-synopsis" placeholder="Sinopse">
+            <input type="text" name="add-author" id="reg-book-author" placeholder="Autor">
+            <input type="list" name="add-gender" id="reg-book-gender" placeholder="Gênero">
+            <input type="date" name="add-date" id="reg-book-date" placeholder="Data de entrada">
+            <button>CANCELAR</button>
+            <button>SALVAR</button>
+        </form>
+    </div>
     
 </body>
 </html>
