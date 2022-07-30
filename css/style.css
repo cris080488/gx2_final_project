@@ -38,72 +38,20 @@ header div {
 /*#endregion general*/
 
 
-/*#region -----------index_screen----------------*/
-
-#load-body {
-    width: 100vw;
-    background-color: #000;
-    background-image: url(../images/space.svg);
-    background-size: cover;
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-
-}
-
-#load-body article {
-    width: 25rem;
-    text-align: left;
-    align-self: center;
-    justify-content: space-evenly;
-    margin: 0;
-}
-
-#load-title {
-    font-family: "Roboto";
-    font-weight: 500;
-    color: #fff;
-    font-size: 66px;
-    margin-bottom: 0;
-}
-
-#load-body h4 {
-    font-family: "Roboto";
-    font-weight: 400;
-    color: #fff;
-    font-size: 50px;
-}
-
-#load-footer {
-    font-family: "Roboto";
-    font-weight: 500;
-    color: #ffc501;
-    font-size: 20px;
-}
-
-#astro_img {
-    width: auto;
-    max-height: 300px;
-    height: auto;
-
-    align-self: center;
-}
-/*#endregion index_screen*/
-
-
 /*#region -----------login_screen----------------*/
 #login {
     align-items: center;
-    background-image: url(../images//libarary_background_gradient.svg), url(../images/library_background.png);
+    background-image: url(../images//libarary_background_gradient.svg), url(../images/library_background2.png);
     background-size: cover, cover;
-    background-position: center top, center 65%;
+    background-position: center top, center top;
     background-repeat: no-repeat;
+
 }
 
 #login-container {
     background-color: #fff;
     max-width: 300px;
+    max-height: 350px;
     margin-left: auto;
     margin-right: auto;
     padding: 40px;
@@ -159,7 +107,7 @@ header div {
     font-size: 0.8rem;
 }
 
-#login-container input[type=submit] {
+#login-container input[type=button] {
     text-align: center;
     font-size: 0.85rem;
     width: 100%;
@@ -185,12 +133,23 @@ header div {
     border: 2px solid #F4F4F4;
     border-radius: 4px;
     font-family: "Roboto";
+    cursor:pointer;
+    font-weight: 500;
 }
 
-.home-card p {
+.home-card:hover{
+    background-color: #FFC501;
+    border: 2px solid #FFC501
+
+}
+
+.home-card span {
     background-color: #fff;
     height: 4em;
-    font-size: 0.85rem;    
+    font-size: 0.85rem;   
+    text-align:center; 
+    margin-bottom: 0;
+    align-items: center;
 }
 
 .home-card img {
@@ -229,6 +188,56 @@ input[type='file'] {
     display: none;
 }
 
-
-
 /*#endregion*/
+
+/*region--------------libary-screen-------------*/
+
+.search-book {
+    width: 666px;
+    height: 53px;
+    border: 1px solid #ADB5BD;
+    border-radius: 5px;
+}
+
+#book-galery {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 50px;
+    overflow-y: scroll;
+    overflow-x: visible;
+
+}
+
+.book-card{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 12em;
+    height: 15em;
+    background-color: #F4F4F4;
+    margin: 20px;
+    text-align: center;
+    font-family: "Roboto";
+    cursor:pointer;
+    font-weight: 500;
+    border-radius: 4px;
+ 
+
+}
+
+.book-card img{
+    width: 8em;
+    height: 10em;
+    margin: 5px 10px 10px 10px;
+    align-self: center;
+}
+
+.book-card p {
+    width: 8em;
+    margin: auto;
+}
+
+/*endregion*/

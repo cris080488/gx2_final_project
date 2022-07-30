@@ -15,24 +15,26 @@
         <img class="header-img" src="images/library_icon.png">
         <div class="user-block">
             <img src="images/person_icon.svg">
-            <p class="user-text">Usuário</p>
+            <p class="user-text" id="user">Usuário</p>
             <img src="images/arrow_icon.svg">
         </div>
     </header>
 
     <div class="page-container" id="home-container">
-        <div class="home-card" id="home-new-book">
+        <div class="home-card" id="home-new-book" onclick="openWindow('register.html')">
             <img src="images/add_icon.svg">
-            <p>Cadastrar novo livro</p>
+            <span><p>Cadastrar novo livro</p></span>
         </div>
-        <div class="home-card" id="home-library">
+        <div class="home-card" id="home-library" onclick="openWindow('library.html')">
             <img src="images/book_icon.svg">
-            <p>Biblioteca</p>
+            <span><p>Biblioteca</p></span>
         </div>
-        <div class="home-card" id="home-historic">
+
+        <div class="home-card" id="home-historic" onclick="openWindow('history.html')">
             <img src="images/historic_icon.svg">
-            <p>Histórico de empréstimos</p>
+            <span><p>Histórico de empréstimos</p></span>
         </div>    
     </div>
+    <script src="./js/script.js"></script>
 </body>
 </html>
