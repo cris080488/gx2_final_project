@@ -11,14 +11,45 @@
 </head>
 <body>
     <header class="header">
-        <img class="header-img" src="images/library_icon.png">
-        <div class="user-block">
-            <img src="images/person_icon.svg">
-            <p class="user-text">Usuário</p>
+        <img class="header-logo" src="images/library_icon.png">
+        <div class="menu-user"> 
+            <img src="images/person_icon.svg">   
+            <ul class="user-name">Usuário
+                <li ><a class="user-exit" id="user">Sair</a></li>
+            </ul>
             <img src="images/arrow_icon.svg">
         </div>
     </header>
+    <div class="page-container2">
+        <div class="back-page">
+            <img src="./images/left_arrow.svg">
+            <P></P>
+            <p><strong></strong></p>
+        </div>
+        <table class="historic-table" id="h-table">
+            <thead>
+                <tr class="th-text">
+                    <th>Aluno</th>
+                    <th>Turma</th>
+                    <th>Livro</th>
+                    <th>Data da Retirada</th>
+                    <th>Data da Entrega</th>
+                </tr>
+                <tr class="th-filter">
+                    <th><input class="column-filter" type="text" id="col1-filter"></th>
+                    <th><input class="column-filter" type="text" id="col1-filter"></th>
+                    <th><input class="column-filter" type="text" id="col1-filter"></th>
+                    <th><input class="column-filter" type="text" id="col1-filter"></th>
+                    <th><input class="column-filter" type="text" id="col1-filter"></th>
+                </tr>
+            </thead>
+            <tbody id="bd-historic-table">
 
+            </tbody>
+        </table>
+        
+    </div>
     
+    <script src="/js/script.js"></script>
 </body>
 </html>

@@ -11,20 +11,34 @@
 </head>
 <body>
     <header class="header">
-        <img class="header-img" src="images/library_icon.png">
-        <div class="user-block">
-            <img src="images/person_icon.svg">
-            <p class="user-text">Usuário</p>
+        <img class="header-logo" src="images/library_icon.png">
+        <div class="menu-user"> 
+            <img src="images/person_icon.svg">   
+            <ul class="user-name">Usuário
+                <li ><a class="user-exit" id="user">Sair</a></li>
+            </ul>
             <img src="images/arrow_icon.svg">
         </div>
     </header>
-    <div class="page-container" id="home-container">
-        <div class="search-book">
-            <input type="Text">
-            <span>
-                <button onclick="b()">Buscar</button>
-            </span>
-            <input type=""> 
+    
+    <div class="page-container2" id="lib-container">
+        <div class="back-page">
+            <img src="./images/left_arrow.svg">
+            <P></P>
+            <p><strong></strong></p>
+        </div>
+        <div>
+            <img>
+            <p><strong></strong></p>
+        </div>
+        <div class="filter-bar">
+            <div class="search-book">
+                <input type="Text">
+                <span>
+                    <button onclick="updateLibrary()">Buscar</button>
+                </span> 
+            </div>
+            <input type="">
         </div>  
         <div id="book-galery">
 

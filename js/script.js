@@ -8,7 +8,7 @@ fetch('./data/data.json').then(response=>{
     data = body.data
 })
 
-
+/* login */
 
 function login() {
     var user = document.getElementById('login-email').value
@@ -27,20 +27,25 @@ function login() {
     }
 }
 
+/* home */
 
 function openWindow(url) {   
-
+    
     window.location.assign(url)
 }
 
 
-function b(){
+/*document.getElementById("home-library").addEventListener("click", updateLibrary);*/
+
+
+/* Library */
+
+function updateLibrary() {
     
     var books = data['books']
 
     books.forEach(element => {
         
-        if(element.status.isActive === true) {
             let card = document.createElement("div")
             card.className = "book-card"
         
@@ -53,8 +58,39 @@ function b(){
         
             let container = document.getElementById("book-galery");
             container.appendChild(card);
-        }
         })
 }
 
+/* historic */
 
+function historic() {
+
+    var books = data['books']
+    var i = 0
+    let tb_body = document.getElementById('bd-historic-table')
+
+    books.forEach(element => {
+        
+        if(element.rentHistory.length !== 0) {
+            var row = tb_body.insertRow(i)
+
+            var cell1 = row.insertCell(0)
+            var cell2 = row.insertCell(1)
+            var cell3 = row.insertCell(2)
+            var cell4 = row.insertCell(3)
+            var cell5 = row.insertCell(4)
+
+            var hist = element.rentHistory[element.rentHistory.length - 1]
+
+            cell1.innerHTML = hist.studentName
+            cell2.innerHTML = hist.class
+            cell3.innerHTML = element.tittle
+            cell4.innerHTML = hist.withdrawalDate
+            cell5.innerHTML = hist.deliveryDate
+
+
+        }    
+
+
+    })
+}
