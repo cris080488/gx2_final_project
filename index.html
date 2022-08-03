@@ -9,17 +9,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">
 </head>
 <body id="login">
-    <div id="login-container" >
-        <img src="images/library_logo.svg">
-        <form>
-            <input type="email" name="email" id="login-email" placeholder="E-mail" autocomplete="off">
-            <input type="password" name="password" id="login-pwd" placeholder="Senha">
-            <a href="#" id="login-pwd-reset" >Esqueci minha senha</a>
-            <input type="button" value="ENTRAR" onclick="login()">
-         </form>
-
+        <div id="login-container" onload="upload_data()">
+            <img src="images/library_logo.svg">
+            <form>
+                <input type="email" name="email" id="login-email" placeholder="E-mail" autocomplete="off">
+                <input type="password" name="password" id="login-pwd" placeholder="Senha">
+                <a href="#" id="login-pwd-reset" >Esqueci minha senha</a>
+                <input type="button" value="ENTRAR" onclick="login()">
+            </form>
     </div>
-    
     <script src='./js/script.js'></script>
 </body>
 </html>
