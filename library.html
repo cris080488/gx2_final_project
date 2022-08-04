@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">
 
 </head>
-<body onload="updateLibrary()">
+<body id="library">
     <header class="header">
         <img class="header-logo" src="images/library_icon.png">
         <div class="menu-user"> 
@@ -55,23 +55,26 @@
         <div class="modal-screen">
             
             <div class="modal-content">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
+                <div>
+                    <button type="button" class="btn-close" id="btn-close">x</button>
+                </div>
                 <div class="sub-container"> 
                     <div class="modal-box1">
                         <img id="book-image">
-                        <button class="rent-btn" id="button-rent">Emprestar</button>
+                        <div>
+                            <h3 id="book-title"></h3>
+                            <h5>Sinopse</h5>
+                            <p id="book-synopse"></p>
+                            <h5>Autor</h5>
+                            <p id="book-author"></p>
+                            <h5>Gênero</h5>
+                            <p id="book-gender"></p>
+                            <h5>Data de entrada</h5>
+                            <p id="book-date"></p>
+                        </div>
                     </div>
                     <div class="modal-box2">
-                        <h3 id="book-title"></h3>
-                        <h5>Sinopse</h5>
-                        <p id="book-synopse"></p>
-                        <h5>Autor</h5>
-                        <p id="book-author"></p>
-                        <h5>Gênero</h5>
-                        <p id="book-gender"></p>
-                        <h5>Data de entrada</h5>
-                        <p id="book-date"></p>
-                    
+                        <button class="rent-btn" id="button-rent">Emprestar</button>
                         <div class="buttons-bar">
                             <button class="btn-edit" id="btn-edit">Editar</button>
                             <button class="btn-disable" id="btn-disable">Inativar</button>
@@ -87,10 +90,10 @@
             <button>X</button>
             <h4>Informe os dados do aluno antes de continuar</h4>
             <div>
-                <input ></input>
-                <input ></input>
-                <input ></input>
-                <input ></input>
+                <input id="inpt-modal-student"></input>
+                <input id="inpt-modal-class"></input>
+                <input id="inpt-modal-drawaldate"></input>
+                <input id="inpt-modal-deliverydate"></input>
             </div>
             <button class="rent-btn">Emprestar</button>
         </div>
@@ -114,7 +117,7 @@
                         <th><input class="column-filter" type="text" id="col1-filter"></th>
                     </tr>
                 </thead>
-                <tbody id="bd-historic-table">
+                <tbody id="modal-historic-table">
     
                 </tbody>
             </table>
@@ -124,8 +127,8 @@
         <div class="modal-content">
             <button>X</button>
             <h4>Histórico de empréstimos do livro</h4>
-            <input type="text" placeholder="Descrição">
-            <button class="btn-disable" id="btn-disable">Inativar</button>
+            <input type="text" id="description-disable" placeholder="Descrição">
+            <button class="btn-disable" id="btn-disable-func">Inativar</button>
         </div>
     </div>
     <script src="/js/script.js"></script>

@@ -1,5 +1,3 @@
-var global_user = ''
-var page_history = ''
 var data;
 
 /* Load Data*/
@@ -10,10 +8,9 @@ fetch('./data/data.json').then(response=>{
     data = body.data
 })
 
-
 /* back page*/
 
-/* Login */
+//#region Login
 
 function login() {
     
@@ -23,6 +20,7 @@ function login() {
     var logins = data.login
 
     const result = logins.find( usr => usr.email === user )
+    localStorage.setItem('user', user)
 
     if(result.password === pwd && result.email === user){
         global_user = result.email.value
@@ -32,18 +30,28 @@ function login() {
         alert("Usuário e/ou senha incorreta!")
     }
 }
+//#endregion
 
-/* Home */
+
+//#region Home
+
 function openWindow(url) {   
     
     window.location.assign(url)
 }
 
-/* Library */
+
+//#endregion
+
+
+//#region Library Functions
+
+document.getElementById("lib-container").onload = updateLibrary;
+
 
 function updateLibrary() {
-    
-    var books = data.books
+
+    books = data.books
 
     books.forEach(element => {
         
@@ -68,12 +76,22 @@ function updateLibrary() {
         cards[i].addEventListener("click", function (e) {
 
             book = books.find(b => b.tittle === this.children[1].innerHTML)
-            document.getElementById("book-image").src = book.image
-            document.getElementById("book-title").innerHTML = book.tittle
-            document.getElementById("book-synopse").innerHTML = book.synopsis
-            document.getElementById("book-author").innerHTML = book.author
-            document.getElementById("book-gender").innerHTML = book.genre
-            document.getElementById("book-date").innerHTML = book.systemEntryDate
+            localStorage.setItem('tittle', book.tittle)
+            localStorage.setItem('author',  book.author)
+            localStorage.setItem('genre', book.genre)
+            localStorage.setItem('status_active', book.status.isActive)
+            localStorage.setItem('status_description', book.status.description)
+            localStorage.setItem('image', book.image)
+            localStorage.setItem('systemEntryDate', book.systemEntryDate)
+            localStorage.setItem('synopsis', book.synopsis)
+            localStorage.setItem('history', JSON.stringify(book.rentHistory))
+
+            document.getElementById("book-image").src = localStorage.image
+            document.getElementById("book-title").innerHTML = localStorage.tittle
+            document.getElementById("book-synopse").innerHTML = localStorage.synopsis
+            document.getElementById("book-author").innerHTML = localStorage.author
+            document.getElementById("book-gender").innerHTML = localStorage.genre
+            document.getElementById("book-date").innerHTML = localStorage.systemEntryDate
 
             let modal = document.getElementById("book-modal");
             modal.style.display = "block" ;
@@ -82,7 +100,11 @@ function updateLibrary() {
     }
 }
 
-/* Modals */
+//#endregion
+
+
+//#region Modals
+//------------------------rent modal----------------------------------------
 
 document.getElementById("button-rent").addEventListener("click", function() {
     let book_modal = document.getElementById("book-modal");
@@ -91,11 +113,47 @@ document.getElementById("button-rent").addEventListener("click", function() {
     book_modal.style.display = "none" ;
 })
 
+//------------------------edit page----------------------------------------
+
 document.getElementById("btn-edit").addEventListener("click", function() {
     let book_modal = document.getElementById("book-modal");
     book_modal.style.display = "none" ;
     openWindow('edit.html')
 })
+
+
+//------------------------history modal----------------------------------------
+
+document.getElementById("btn-hist").addEventListener("click", function() {
+    let book_modal = document.getElementById("book-modal");
+    let hist_modal = document.getElementById("hist-modal");
+    hist_modal.style.display = "block" ;
+    book_modal.style.display = "none" ;
+
+    let tb_body = document.getElementById('modal-historic-table')
+    const book_hist = data.books.find( book => book.tittle === localStorage.tittle )
+
+    book_hist.rentHistory.forEach((element, index) => {
+        
+        if(element.length !== 0) {
+            var row = tb_body.insertRow(index)
+
+            var cell1 = row.insertCell(0)
+            var cell2 = row.insertCell(1)
+            var cell3 = row.insertCell(2)
+            var cell4 = row.insertCell(3)
+
+            cell1.innerHTML = element.studentName
+            cell2.innerHTML = element.class
+            cell3.innerHTML = element.withdrawalDate
+            cell4.innerHTML = element.deliveryDate
+        }    
+    })
+
+})
+
+
+//------------------------disable modal----------------------------------------
 
 document.getElementById("btn-disable").addEventListener("click", function() {
     let book_modal = document.getElementById("book-modal");
@@ -104,25 +162,30 @@ document.getElementById("btn-disable").addEventListener("click", function() {
     book_modal.style.display = "none" ;
 })
 
-document.getElementById("btn-hist").addEventListener("click", function() {
-    let book_modal = document.getElementById("book-modal");
-    let hist_modal = document.getElementById("hist-modal");
-    hist_modal.style.display = "block" ;
-    book_modal.style.display = "none" ;
-})
 
-/* Historic */
+document.getElementById("btn-disable-func").addEventListener("click", function() {
+
+    const description = document.getElementById("description-disable").value
+
+    localStorage.status_active = false
+    localStorage.status_description = description
+    
+    })
+
+//#endregion
+
+
+//#region history
 
 function history() {
 
     var books = data.books
-    var i = 0
     let tb_body = document.getElementById('bd-historic-table')
 
-    books.forEach(element => {
+    books.forEach((element, index) => {
         
         if(element.rentHistory.length !== 0) {
-            var row = tb_body.insertRow(i)
+            var row = tb_body.insertRow(index)
 
             var cell1 = row.insertCell(0)
             var cell2 = row.insertCell(1)
@@ -140,3 +203,6 @@ function history() {
         }    
     })
 }
+//#endregion
+
+
