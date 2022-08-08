@@ -10,24 +10,32 @@
 
 </head>
 <body id="edit">   
-    <header class="header">
+    <header class="header" id="header">
         <img class="header-logo" src="images/library_icon.png">
-        <div class="menu-user"> 
+        <div class="menu-user" id="menu-user"> 
             <img src="images/person_icon.svg">   
-            <ul class="user-name">Usuário
-                <li ><a class="user-exit" id="user">Sair</a></li>
+            <ul class="user-name" id="usr-name">Usuário
             </ul>
-            <img src="images/arrow_icon.svg">
+            <img src="images/arrow_icon.svg" id="exit-arrow">
         </div>
     </header>
 
     <div class="page-container2">
-        <div class="back-page" onclick="backpage()">
+        <div class="back-page" id="backpage">
             <img src="./images/left_arrow.svg">
-            <P></P>
-            <p><strong></strong></p>
+            <P>Biblioteca</P>
+            <p><strong>/ Editar livro</strong></p>
         </div>
-        <p class=""></p>
+            <img id="edit-image">
+            <input  type="file" id="reg-input-image" accept="image/*">
+            <input  type="text" id="reg-book-title" placeholder="Título">
+            <input  type="text" id="reg-book-synopsis" placeholder="Sinopse">
+            <input  type="text" id="reg-book-author" placeholder="Autor">
+            <input  type="list" id="reg-book-gender" placeholder="Gênero">
+            <input  type="date" id="reg-book-date" placeholder="Data de entrada">
+        <div>
+            <button>CANCELAR</button>
+            <button>SALVAR</button>
     </div>
     
 </body>

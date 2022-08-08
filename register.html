@@ -6,36 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.google apis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">
 
 </head>
 <body id="register">
-    <header class="header">
+    <header class="header" id="header">
         <img class="header-logo" src="images/library_icon.png">
-        <div class="menu-user"> 
+        <div class="menu-user" id="menu-user"> 
             <img src="images/person_icon.svg">   
-            <ul class="user-name">Usuário
-                <li ><a class="user-exit" id="user">Sair</a></li>
+            <ul class="user-name" id="usr-name">Usuário
             </ul>
-            <img src="images/arrow_icon.svg">
+            <img src="images/arrow_icon.svg" id="exit-arrow">
         </div>
     </header>
 
-    <div class="page-container2">
-        <div class="back-page" >
+    <div class="page-container2" id="reg-container">
+        <div class="back-page" id="backpage">
             <img src="./images/left_arrow.svg" id="rg-back">
-            <P></P>
-            <p><strong></strong></p>
+            <P>Home</P>
+            <p><strong>/ Cadastrar novo livro</strong></p>
         </div>
         <p class=""></p>
-        <section class="grid reg-add-book">
-            <div class="reg-book-image"><img src="images/add_icon_yellow.svg"><p>Capa</p></div>
-            <input  type="file" name="add-image" id="reg-input-image" accept="image/*">
-            <input  type="text" name="add-title" id="reg-book-title" placeholder="Título">
-            <input  type="text" name="add-synopsis" id="reg-book-synopsis" placeholder="Sinopse">
-            <input  type="text" name="add-author" id="reg-book-author" placeholder="Autor">
-            <input  type="list" name="add-gender" id="reg-book-gender" placeholder="Gênero">
-            <input  type="date" name="add-date" id="reg-book-date" placeholder="Data de entrada">
+        <section class="">
+            <div class=""><img src="images/add_icon_yellow.svg"><p>Capa</p></div>
+            <input  class="inpt-file" type="file" name="add-image" id="reg-input-image" accept="image/*">
+            <input  class="inpt-title" type="text" name="add-title" id="reg-book-title" placeholder="Título">
+            <input  class="inpt-synopse" type="text" name="add-synopsis" id="reg-book-synopsis" placeholder="Sinopse">
+            <input  class="inpt-author" type="text" name="add-author" id="reg-book-author" placeholder="Autor">
+            <input  class="inpt-genre" type="list" name="add-gender" id="reg-book-gender" placeholder="Gênero">
+            <input  class="inpt-date" type="date" name="add-date" id="reg-book-date" placeholder="Data de entrada">
         </section>
         <div>
             <button>CANCELAR</button>

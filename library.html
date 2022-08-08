@@ -7,38 +7,35 @@
     <title>Edit</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">
+    
 
 </head>
 <body id="library">
-    <header class="header">
+    <header class="header" id="header">
         <img class="header-logo" src="images/library_icon.png">
-        <div class="menu-user"> 
+        <div class="menu-user" id="menu-user"> 
             <img src="images/person_icon.svg">   
-            <ul class="user-name">Usuário
-                <li ><a class="user-exit" id="user">Sair</a></li>
+            <ul class="user-name" id="usr-name">Usuário
             </ul>
-            <img src="images/arrow_icon.svg">
+            <img src="images/arrow_icon.svg" id="exit-arrow">
         </div>
     </header>
     
     <div class="page-container2" id="lib-container">
-        <div class="back-page">
+        <div class="back-page" id="backpage">
             <img src="./images/left_arrow.svg">
-            <P></P>
-            <p><strong></strong></p>
-        </div>
-        <div>
-            <img>
-            <p><strong></strong></p>
+            <P>Home</P>
+            <p><strong>/ Biblioteca</strong></p>
         </div>
         <div class="filter-bar">
             <div class="search-book">
-                <input type="Text">
+                <img src="/images/search_icon.svg" class="search-icon">
+                <input id="filter-input" type="Text" placeholder="Pesquisar livro...">
                 <span>
-                    <button onclick="updateLibrary()">Buscar</button>
+                    <button id="filter-button">Buscar</button>
                 </span> 
             </div>
-            <input list="attr-book" placeholder="Filtrar">
+            <input id="filter-list" list="attr-book" placeholder="Filtrar">
             <datalist id="attr-book">
                 <option value="Filtrar" disabled selected>
                 <option value="Gênero">
@@ -51,14 +48,17 @@
 
         </div> 
     </div>
+
+    <!--############## Modals ###########################-->
+
     <div class="modal" id="book-modal">
         <div class="modal-screen">
             
-            <div class="modal-content">
+            <div class="modal-content" id="modal-content">
                 <div>
                     <button type="button" class="btn-close" id="btn-close">x</button>
                 </div>
-                <div class="sub-container"> 
+                <div class="sub-container" id="container-book"> 
                     <div class="modal-box1">
                         <img id="book-image">
                         <div>
@@ -87,20 +87,24 @@
     </div>
     <div class="modal" id="rent-modal">
         <div class="modal-content" >
-            <button>X</button>
-            <h4>Informe os dados do aluno antes de continuar</h4>
             <div>
+                <button type="button" class="btn-close" id="btn-close">x</button>
+            </div>
+            <h4>Informe os dados do aluno antes de continuar</h4>
+            <div id="rent-subcontainer">
                 <input id="inpt-modal-student"></input>
                 <input id="inpt-modal-class"></input>
-                <input id="inpt-modal-drawaldate"></input>
-                <input id="inpt-modal-deliverydate"></input>
+                <input id="inpt-modal-drawaldate" type="date"></input>
+                <input id="inpt-modal-deliverydate" type="date"></input>
             </div>
-            <button class="rent-btn">Emprestar</button>
+            <button class="rent-btn" id="button-rent-book">Emprestar</button>
         </div>
     </div>
     <div class="modal" id="hist-modal">
         <div class="modal-content">
-            <button>X</button>
+            <div>
+                <button type="button" class="btn-close" id="btn-close">x</button>
+            </div>
             <h4>Histórico de empréstimos do livro</h4>
             <table class="historic-table" id="h-table">
                 <thead>
@@ -125,7 +129,9 @@
     </div>
     <div class="modal" id="disable-modal">
         <div class="modal-content">
-            <button>X</button>
+            <div>
+                <button type="button" class="btn-close" id="btn-close">x</button>
+            </div>
             <h4>Histórico de empréstimos do livro</h4>
             <input type="text" id="description-disable" placeholder="Descrição">
             <button class="btn-disable" id="btn-disable-func">Inativar</button>
