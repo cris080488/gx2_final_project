@@ -20,7 +20,7 @@
         "author": "Napoleon Hill",
         "genre": "Autoajuda",
         "status": {
-          "isActive": false,
+          "isActive": true,
           "description": "desativado porque estragou"
         },
         "image": "./assets/livro01.png",
@@ -46,8 +46,8 @@
         "author": "Frank Herbert",
         "genre": "Ficção Cientifica",
         "status": {
-          "isActive": true,
-          "description": ""
+          "isActive": false,
+          "description": "Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis leo."
         },
         "image": "./assets/livro02.png",
         "systemEntryDate": "02/01/2020",

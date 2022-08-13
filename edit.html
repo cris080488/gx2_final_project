@@ -26,17 +26,38 @@
             <P>Biblioteca</P>
             <p><strong>/ Editar livro</strong></p>
         </div>
-            <img id="edit-image">
-            <input  type="file" id="reg-input-image" accept="image/*">
-            <input  type="text" id="reg-book-title" placeholder="Título">
-            <input  type="text" id="reg-book-synopsis" placeholder="Sinopse">
-            <input  type="text" id="reg-book-author" placeholder="Autor">
-            <input  type="list" id="reg-book-gender" placeholder="Gênero">
-            <input  type="date" id="reg-book-date" placeholder="Data de entrada">
+        <div class="info-container">
+            <div class="image-box">
+                <img id="edit-image">
+                <input  type="file" id="ed-input-image" accept="image/*">
+            </div>
+            <div class="box2">
+                <input  type="text" id="ed-book-title" placeholder="Título">
+                <input  type="text" id="ed-book-synopsis" placeholder="Sinopse">
+            </div>
+            <div class="box3">
+                <input  type="text" id="ed-book-author" placeholder="Autor">
+                <input  type="list" list="genres" id="ed-book-gender" placeholder="Gênero">
+                <input  type="date" id="ed-book-date" placeholder="Data de entrada">
+            </div>
+
+            <datalist id="genres">
+                <option value="Fantasia"></option>
+                <option value="Ação e Aventura"></option>
+                <option value="Horror"></option>
+                <option value="Romance"></option>
+                <option value="Autoajuda"></option>
+                <option value="Ficção Cientifica"></option>
+                <option value="Historia" selected></option>
+                <option value="Finanças"></option>
+                <option value="Web Marketing"></option>
+            </datalist>
+        </div>
         <div>
-            <button>CANCELAR</button>
-            <button>SALVAR</button>
-    </div>
+            <button id="cancel">CANCELAR</button>
+            <button id="save">SALVAR</button>
+        </div>
     
+    <script src="/js/edit.js"></script>
 </body>
 </html>

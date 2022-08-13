@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.google apis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">
 
 </head>
 <body id="register">
@@ -20,6 +20,7 @@
         </div>
     </header>
 
+    
     <div class="page-container2" id="reg-container">
         <div class="back-page" id="backpage">
             <img src="./images/left_arrow.svg" id="rg-back">
@@ -33,15 +34,28 @@
             <input  class="inpt-title" type="text" name="add-title" id="reg-book-title" placeholder="Título">
             <input  class="inpt-synopse" type="text" name="add-synopsis" id="reg-book-synopsis" placeholder="Sinopse">
             <input  class="inpt-author" type="text" name="add-author" id="reg-book-author" placeholder="Autor">
-            <input  class="inpt-genre" type="list" name="add-gender" id="reg-book-gender" placeholder="Gênero">
+            <input  class="inpt-genre" type="list" list="genres" name="add-gender" id="reg-book-gender" placeholder="Gênero">
             <input  class="inpt-date" type="date" name="add-date" id="reg-book-date" placeholder="Data de entrada">
+            
+            <datalist id="genres">
+                <option value="Fantasia"></option>
+                <option value="Ação e Aventura"></option>
+                <option value="Horror"></option>
+                <option value="Romance"></option>
+                <option value="Autoajuda"></option>
+                <option value="Ficção Cientifica"></option>
+                <option value="Historia" selected></option>
+                <option value="Finanças"></option>
+                <option value="Web Marketing"></option>
+            </datalist>
+        
         </section>
         <div>
-            <button>CANCELAR</button>
-            <button>SALVAR</button>
+            <button id="cancel">CANCELAR</button>
+            <button id="new-book">SALVAR</button>
         </div>
     </div> 
 
-    <script src="./js/script.js"></script>
+    <script src="./js/register.js"></script>
 </body>
 </html>
