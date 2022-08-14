@@ -1,12 +1,10 @@
 let data;
 let dt = JSON.parse(localStorage.json)
 const n_date = new Date()
-/*const actual_date = String(n_date.getDate()).padStart(2, '0') + '/' 
+const actual_date = String(n_date.getDate()).padStart(2, '0') + '/' 
                     + String(n_date.getMonth()).padStart(2, '0') + '/'
-                    + n_date.getFullYear()*/
+                    + n_date.getFullYear()
             
-
-const actual_date = "10/07/2022"
 
 //#region Fetch data
 
@@ -64,15 +62,61 @@ backpage.addEventListener("click", function () {
 
 //#region History
 
-function history() {
+function init() {
+    history(dt.books)
+}
 
-    var books = dt.books
+//---------------------------------------
+
+function hist_filter(word, column) { 
+
+    let hist_book = []
+    let temp_book = []
+
+    temp_book = dt.books
+    
+    if (word !== ''){
+        temp_book.forEach(element => {
+
+            if (column == 'tittle') {
+                if(element[column].toLowerCase().includes(word.toLowerCase())){
+                    hist_book.push(element)
+                } 
+            } else if (element.rentHistory.length > 0) {
+                
+                element.rentHistory.forEach(el => {
+                    
+                    if(el[column].toLowerCase().includes(word.toLowerCase())){
+                        hist_book.push(element)
+                        hist_book[hist_book.length -1].rentHistory.push(el)
+                        }
+                    })
+                }})
+            } 
+            else if (word == ''){
+
+        hist_book = dt.books
+    }
+ 
+    history(hist_book)
+}
+
+//--------------------
+
+function history(dt) {
+
+    var books = dt
+
     let tb_body = document.getElementById('bd-historic-table')
+
+    while (tb_body.rows.length > 0)
+    { 
+        tb_body.deleteRow(0) }
 
     books.forEach((element, index) => {
 
         var hist_length = element.rentHistory.length
-        
+
         if(hist_length !== 0) {
 
             element.rentHistory.forEach((rent_elem, rent_index) => {

@@ -3,6 +3,8 @@ let data;
 let dt = JSON.parse(localStorage.json)
 let ed_book
 var book_index = 0
+let book_date = document.getElementById("ed-book-date")
+let genre_list = document.getElementById("genres")
 
 
 //#region Fetch data
@@ -77,22 +79,25 @@ function fill () {
 
     document.getElementById("ed-book-title").value = ed_book.tittle
     document.getElementById("ed-book-author").value = ed_book.author
-    document.getElementById("ed-book-gender").default = ed_book.genre
-    document.getElementById("ed-input-image").src = ed_book.image
-    document.getElementById("ed-book-date").defaultDate = '07/04/2022'  //ed_book.systemEntryDate
+    genre_list.selectedIndex = select_option(genre_list, ed_book.genre)
+    document.getElementById("edit-image").src = ed_book.image
     document.getElementById("ed-book-synopsis").value = ed_book.synopsis
 
-
-
-    console.log(document.getElementById("ed-book-date").attributes)
 }
 
+function select_option (dropdown_obj, text_opt){
+
+    for (var i = 0; i <dropdown_obj.options.length; i++) {
+        if (dropdown_obj.options[i].text === text_opt) {
+            return i
+        }
+    }
+}
 //function to clear inputs
 function clear_fields () {
 
     document.getElementById("ed-book-title").value = ''
     document.getElementById("ed-book-author").value = ''
-    document.getElementById("ed-book-gender").value = ''
     document.getElementById("ed-input-image").value = ''
     document.getElementById("ed-book-date").value = ''
     document.getElementById("ed-book-synopsis").value = ''
@@ -107,7 +112,7 @@ function edit_book() {
     ed_book.tittle = document.getElementById("ed-book-title").value
     ed_book.author = document.getElementById("ed-book-author").value
     ed_book.genre = document.getElementById("ed-book-gender").value
-    ed_book.image = document.getElementById("ed-input-image").src
+    
     ed_book.systemEntryDate = document.getElementById("ed-book-date").value 
     ed_book.synopsis = document.getElementById("ed-book-synopsis").value
     
@@ -115,5 +120,22 @@ function edit_book() {
 
     localStorage.json = JSON.stringify(temp_data)
 
+}
+//#endregion
+
+
+//#region Convert image
+function encodeImageFileAsURL(element) {
+
+    if (element.files.length > 0){
+    var file = element.files[0]
+    var reader = new FileReader()
+    reader.onloadend = function (file_loaded) {
+        
+        var src_data = file_loaded.target.result
+
+        ed_book.image = src_data
+        }
+    }
 }
 //#endregion

@@ -33,7 +33,6 @@ function login() {
 
     if(result.password === pwd && result.email === user){
         global_user = result.email.value
-        console.log(global_user)
         window.location.assign('./home.html')
     } else {
         alert("Usuário e/ou senha incorreta!")

@@ -91,13 +91,13 @@
                 <button type="button" class="btn-close" id="btn-close-rent">x</button>
             </div>
             <h4>Informe os dados do aluno antes de continuar</h4>
-            <div id="rent-subcontainer">
-                <input id="inpt-modal-student"></input>
-                <input id="inpt-modal-class"></input>
-                <input id="inpt-modal-drawaldate" type="date"></input>
-                <input id="inpt-modal-deliverydate" type="date"></input>
+            <div class="rent-container" id="rent-subcontainer">
+                <input class="btn-rent" id="inpt-modal-student"></input>
+                <input class="btn-rent" id="inpt-modal-class"></input>
+                <input class="btn-rent" id="inpt-modal-drawaldate" type="date"></input>
+                <input class="btn-rent" id="inpt-modal-deliverydate" type="date"></input>
             </div>
-            <button class="rent-btn" id="button-rent-book">Emprestar</button>
+                <button class="rent-btn" id="button-rent-book">Emprestar</button>
         </div>
     </div>
     <div class="modal" id="hist-modal">
@@ -115,10 +115,10 @@
                         <th>Data da Entrega</th>
                     </tr>
                     <tr class="th-filter">
-                        <th><input class="column-filter" type="text" id="col1-filter"></th>
-                        <th><input class="column-filter" type="text" id="col1-filter"></th>
-                        <th><input class="column-filter" type="text" id="col1-filter"></th>
-                        <th><input class="column-filter" type="text" id="col1-filter"></th>
+                        <th><input class="column-filter" name="studentName" type="text" id="col1-filter" onchange="filter_data(this.value, this.name)"></th>
+                        <th><input class="column-filter" name="class" type="text" id="col2-filter" onchange="filter_data(this.value, this.name)"></th>
+                        <th><input class="column-filter" name="withdrawalDate" type="text" id="col3-filter" onchange="filter_data(this.value, this.name)"></th>
+                        <th><input class="column-filter" name="deliveryDate" type="text" id="col4-filter" onchange="filter_data(this.value, this.name)"></th>
                     </tr>
                 </thead>
                 <tbody id="modal-historic-table">
@@ -137,6 +137,6 @@
             <button class="btn-disable" id="btn-disable-func">Inativar</button>
         </div>
     </div>
-    <script src="/js/script2.js"></script>
+    <script src="/js/library.js"></script>
 </body>
 </html>

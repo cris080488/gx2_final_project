@@ -26,36 +26,40 @@
             <P>Biblioteca</P>
             <p><strong>/ Editar livro</strong></p>
         </div>
-        <div class="info-container">
-            <div class="image-box">
-                <img id="edit-image">
-                <input  type="file" id="ed-input-image" accept="image/*">
+        <div class="inpt-container">
+            <div class="inpt-image2" id="image-box">
+                <label for="ed-input-image">
+                    <img id="edit-image" >
+                </label>
+                <input  class="inpt-file" type="file" id="ed-input-image" accept="image/*" onchange="encodeImageFileAsURL(this)">
             </div>
-            <div class="box2">
-                <input  type="text" id="ed-book-title" placeholder="Título">
-                <input  type="text" id="ed-book-synopsis" placeholder="Sinopse">
+            <div class="subcontainer">
+                <input class="inpt" type="text" id="ed-book-title" placeholder="Título">
+                <input  class="inpt-synopsis" type="text" id="ed-book-synopsis" placeholder="Sinopse">
             </div>
-            <div class="box3">
-                <input  type="text" id="ed-book-author" placeholder="Autor">
-                <input  type="list" list="genres" id="ed-book-gender" placeholder="Gênero">
-                <input  type="date" id="ed-book-date" placeholder="Data de entrada">
+            <div class="subcontainer">
+                <input class="inpt" type="text" id="ed-book-author" placeholder="Autor">
+                <select class="inpt" id="genres">
+                    <option value="Fantasia">Fantasia</option>
+                    <option value="Fantasia">Ficção Cientifica</option>
+                    <option value="Ação e Aventura">Ação e Aventura</option>
+                    <option value="Horror">Horror</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Autoajuda">Autoajuda</option>
+                    <option value="Ficção Cientifica">Ficção</option>
+                    <option value="Historia">Historia</option>
+                    <option value="Finanças">Finanças</option>
+                    <option value="Web Marketing">Web Marketing</option>
+                </select>
+
+                <input class="inpt" type="date" id="ed-book-date" placeholder="Data de entrada">
             </div>
 
-            <datalist id="genres">
-                <option value="Fantasia"></option>
-                <option value="Ação e Aventura"></option>
-                <option value="Horror"></option>
-                <option value="Romance"></option>
-                <option value="Autoajuda"></option>
-                <option value="Ficção Cientifica"></option>
-                <option value="Historia" selected></option>
-                <option value="Finanças"></option>
-                <option value="Web Marketing"></option>
-            </datalist>
+            
         </div>
-        <div>
-            <button id="cancel">CANCELAR</button>
-            <button id="save">SALVAR</button>
+        <div class="btn-container">
+            <button id="cancel" class="btn-container-cancel">CANCELAR</button>
+            <button id="save" class="btn-container-save">SALVAR</button>
         </div>
     
     <script src="/js/edit.js"></script>

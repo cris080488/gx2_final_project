@@ -1,7 +1,7 @@
 
-let data;
+let data
 let dt = JSON.parse(localStorage.json)
-
+var img 
 
 //#region Header
 document.getElementById("header").addEventListener("load", get_user());
@@ -58,7 +58,7 @@ function add_book () {
     new_book['author'] = document.getElementById("reg-book-author").value
     new_book['genre'] = document.getElementById("reg-book-gender").value
     new_book['status'] = {"isActive": true, "description": ""}
-    new_book['image'] = document.getElementById("reg-input-image").value
+    new_book['image'] = img
     new_book['systemEntryDate'] = document.getElementById("reg-book-date").value
     new_book['Synopsis'] = document.getElementById("reg-book-synopsis").value
     new_book['rentHistory'] = []
@@ -88,3 +88,17 @@ function save_json(book) {
 
 }
 //#endregion
+
+function encodeImageFileAsURL(element) {
+
+    if (element.files.length > 0){
+    var file = element.files[0]
+    var reader = new FileReader()
+    reader.onloadend = function (file_loaded) {
+        
+        var src_data = file_loaded.target.result
+
+        img = src_data
+        }
+    }
+}

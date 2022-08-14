@@ -68,13 +68,9 @@ backpage.addEventListener("click", function () {
     if (['/library.html', '/history.html', '/register.html' ].includes(window.location.pathname)){
         openWindow('home.html')
     } 
-    
-    console.log(window.location.pathname)
 
     if (window.location.pathname == '/edit') {
         openWindow('library.html')
-    console.log(window.location.pathname)
-
     }
 })
 //#endregion
@@ -111,50 +107,64 @@ var book_rent = {}
 
 //#region Modal function
 function update_modal() {
-    
+
+    btn_disable.style.border = '1px solid #ED5E5E'
+    btn_disable.style.color = '#ED5E5E'
+    btn_disable.innerText = 'Inativar'
+
+    btn_rent.disabled = false
+
+   if(modal_container.contains(disable_box)) {
+        disable_box.parentNode.removeChild(disable_box) 
+    }
+ 
+    if(modal_container.contains(hist_box)) {
+        hist_box.parentNode.removeChild(hist_box)
+    }
+
     var delivery_rent = actual_date
 
     if (book.rentHistory.length > 0) {
         delivery_rent = book.rentHistory[book.rentHistory.length -1].deliveryDate
     }
 
-    if (book.status.isActive == true & delivery_rent > actual_date & !hist_box) {
-                   
-        last_rent = book.rentHistory[book.rentHistory.length -1]
+if ((book.status.isActive == 'true' || book.status.isActive == true) & delivery_rent > actual_date) {
         
-        let rent_table = document.createElement("div")
-        rent_table.id = 'rent-card-hist'
+        last_rent = book.rentHistory[book.rentHistory.length -1]
+    
 
-        rent_table.innerHTML = `<p class="rent-table-title">Dados do aluno</p>` + 
+        hist_box = document.createElement("div")
+
+        hist_box.innerHTML = `<p class="rent-table-title">Dados do aluno</p>` + 
         `<table class="rent-table"> <tr> <th>Nome do aluno</th> <th>Turma</th> <th>Data da retirada</th> <th>Data da entrega</th> </tr>` + 
         `<tr> <td>${last_rent.studentName}</td><td>${last_rent.class}</td><td>${last_rent.withdrawalDate}</td><td>${last_rent.deliveryDate}</td></tr></table>`
         
-        rent_table.style.borderRadius = '5px'
-        rent_table.style.textAlign = "left"
+        hist_box.style.borderRadius = '5px'
+        hist_box.style.textAlign = "left"
 
-        modal_container.appendChild(rent_table)
+        modal_container.appendChild(hist_box)
 
         btn_rent.style.backgroundColor = '#F4F4F4'
         btn_rent.style.border = '1px solid #ADB5BD'
         btn_rent.innerText = 'Devolver'
-    } 
-    else if (book.status.isActive == true & delivery_rent <= actual_date){
 
+
+
+    } 
+    else if (book.status.isActive == true && Date(delivery_rent) <= Date(actual_date)){
+        
         btn_rent.style.backgroundColor = '#FFC501'
         btn_rent.style.border = '1px solid #ADB5BD'
         btn_rent.innerText = 'Emprestar'
     }
+     else if (book.status.isActive == false) {
+          
+        disable_box = document.createElement("div")
 
-     //Builds the HTML elements, if book is inactive
-     if (book.status.isActive == false & !disable_box) {
-
-        let disable_desc = document.createElement("div")
-        disable_desc.id = 'disable-cont'
-
-        disable_desc.innerHTML = `<p class="disable-title">Informações da inativação</p>` + 
+        disable_box.innerHTML = `<p class="disable-title">Informações da inativação</p>` + 
         `<div class="disable-description-box"><p class="desc-title"><strong>Motivo</strong></p><p>${book.status.description}</p></div>`
         
-        modal_container.appendChild(disable_desc)
+        modal_container.appendChild(disable_box)
 
         btn_disable.style.border = '1px solid #49D749'
         btn_disable.style.color = '#49D749'
@@ -165,12 +175,14 @@ function update_modal() {
 }
 //#endregion
 
+
 //#region Filter
 document.getElementById("filter-button").addEventListener("click", function () {
     
     var word = document.getElementById("filter-input").value
     var category = document.getElementById("filter-list").value
     var book = []
+    var cat
 
     if(category == 'Gênero') {
         
@@ -185,10 +197,15 @@ document.getElementById("filter-button").addEventListener("click", function () {
 
         cat = 'tittle'
     }
- 
-    if (word !== ''){
 
-        book.push(dt.books.find(b => b[cat] == word))
+    if (word !== ''){
+        dt.books.forEach(e => {
+            if(e[cat].toLowerCase().includes(word.toLowerCase())){
+                book.push(e)
+            }
+
+        })
+
     } else {
 
         book = dt.books
@@ -251,22 +268,20 @@ function updateLibrary(books) {
 //#region Rent book modal
 btn_rent.addEventListener("click", function() {
     
-    disable_box = document.getElementById('disable-cont')
-    hist_box = document.getElementById('rent-card-hist') 
-
+   
     if (btn_rent.textContent == "Emprestar"){
-
+        
         book_modal.style.display = "none"
         rent_modal.style.display = "block"
     } 
-    /*else if (disable_box){
+    else if (disable_box !== null){
 
         dt.books.find(b => b.tittle === localStorage.tittle).status.isActive = 'true'
         localStorage.json = JSON.stringify(dt)
         disable_box.parentNode.removeChild(disable_box)
         update_modal()
-    } */
-    else if (hist_box){
+    }
+    else if (hist_box !== null){
 
         len_hist = book.rentHistory.length -1
         dt.books.find(b => b.tittle === localStorage.tittle).rentHistory[len_hist].deliveryDate = actual_date
@@ -289,13 +304,10 @@ btn_rent_book.addEventListener("click", function() {
 
     if (book_rent.studentName !== '' & book_rent.class !== '' 
         & book_rent.withdrawalDate !== '' & book_rent.deliveryDate !== '') {
-            localStorage.rented = 'true'
             dt.books.find(b => b.tittle === localStorage.tittle).rentHistory.push(book_rent)
             localStorage.json = JSON.stringify(dt)
             rent_modal.style.display = 'none'
             
-
-
         } else {
             window.alert("Preencha todos os campos")
         }
@@ -308,8 +320,6 @@ btn_rent_book.addEventListener("click", function() {
 //#endregion
 
 //#region edit modal
-btn_edit.addEventListener("mouseleave", function() {console.log('teste')})
-
 btn_edit.addEventListener("click", function() {
 
     book_modal.style.display = "none"
@@ -322,12 +332,17 @@ btn_hist.addEventListener("click", function() {
 
     book_modal.style.display = "none"
     hist_modal.style.display = "block"
-    view_hist(dt)
+    view_hist(dt.books)
 })
 
-    function view_hist (d) {
+function view_hist (d) {
+
     let tb_body = document.getElementById('modal-historic-table')
-    const book_hist = d.books.find( book => book.tittle === localStorage.tittle )
+
+    while (tb_body.rows.length > 0)
+    { tb_body.deleteRow(0) }
+
+    const book_hist = d.find( bk => bk.tittle === localStorage.tittle )
 
     book_hist.rentHistory.forEach((element, index) => {
         
@@ -343,12 +358,34 @@ btn_hist.addEventListener("click", function() {
     })
 }
 
+//filter table
+function filter_data(word, obj_name) {
+
+    let rent_hist_book = []
+    let temp_book = []
+
+    temp_book.push(book)
+
+    if (word !== '' & book.rentHistory.length > 0){
+        temp_book[0].rentHistory.forEach(element => {
+
+            if(element[obj_name].toLowerCase().includes(word.toLowerCase())){
+                rent_hist_book.push(element)
+            }
+        })
+
+    } else if (word == ''){
+        rent_hist_book = book.rentHistory
+    }
+    temp_book[0].rentHistory = rent_hist_book
+    view_hist(temp_book)
+}
+
 //#endregion
 
 //#region disable modal
 btn_disable.addEventListener("click", function() {
 
-    disable_box = document.getElementById('disable-cont')
 
     if (btn_disable.textContent == "Inativar") {
         book_modal.style.display = "none"

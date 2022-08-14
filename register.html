@@ -28,15 +28,21 @@
             <p><strong>/ Cadastrar novo livro</strong></p>
         </div>
         <p class=""></p>
-        <section class="">
-            <div class=""><img src="images/add_icon_yellow.svg"><p>Capa</p></div>
-            <input  class="inpt-file" type="file" name="add-image" id="reg-input-image" accept="image/*">
-            <input  class="inpt-title" type="text" name="add-title" id="reg-book-title" placeholder="Título">
-            <input  class="inpt-synopse" type="text" name="add-synopsis" id="reg-book-synopsis" placeholder="Sinopse">
-            <input  class="inpt-author" type="text" name="add-author" id="reg-book-author" placeholder="Autor">
-            <input  class="inpt-genre" type="list" list="genres" name="add-gender" id="reg-book-gender" placeholder="Gênero">
-            <input  class="inpt-date" type="date" name="add-date" id="reg-book-date" placeholder="Data de entrada">
-            
+        <section class="inpt-container">
+            <div class="inpt-image">
+                <input  class="inpt-file" type="file" name="add-image" id="reg-input-image" accept="image/*" onchange="encodeImageFileAsURL(this)">
+                <img src="images/add_icon_yellow.svg">
+                <label for="reg-input-image">Capa</label>
+            </div>
+            <div class="subcontainer">
+                <input  class="inpt" type="text" name="add-title" id="reg-book-title" placeholder="Título">
+                <input  class="inpt-synopsis" type="text" name="add-synopsis" id="reg-book-synopsis" placeholder="Sinopse">
+            </div>
+            <div class="subcontainer">
+                <input  class="inpt" type="text" name="add-author" id="reg-book-author" placeholder="Autor">
+                <input  class="inpt" type="list" list="genres" name="add-gender" id="reg-book-gender" placeholder="Gênero">
+                <input  class="inpt" type="date" name="add-date" id="reg-book-date" placeholder="Data de entrada">
+            </div>
             <datalist id="genres">
                 <option value="Fantasia"></option>
                 <option value="Ação e Aventura"></option>
@@ -50,9 +56,9 @@
             </datalist>
         
         </section>
-        <div>
-            <button id="cancel">CANCELAR</button>
-            <button id="new-book">SALVAR</button>
+        <div class="btn-container">
+            <button id="cancel" class="btn-container-cancel">CANCELAR</button>
+            <button id="new-book" class="btn-container-save">SALVAR</button>
         </div>
     </div> 
 
